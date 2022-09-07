@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
+#include <sstream>
 
 
 
@@ -25,9 +27,12 @@ public:
     void add_entry(student);
     void remove_entry(student);
     void modify_entry(student);
+    void visualize();
 
     std::vector <student> get_entries();
 
+    void save();
+    void load();
     //friend std::ostream& operator<<(std::ostream&, const databaseManager&);
     //friend std::ostream& operator>>(std::ostream&, const databaseManager&);
 };

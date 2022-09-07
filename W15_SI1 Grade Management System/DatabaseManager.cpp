@@ -25,6 +25,14 @@ void DatabaseManager::modify_entry(student modifyStudent) {
 
 }
 
+void DatabaseManager::visualize()
+{
+    auto it = begin(schoolDiary);
+             for (it; it != end(schoolDiary); it++) {
+                 std::cout << "\t Name: " << std::setw(15) << std::left << it->first << "\t Grade: " << it->second << std::endl;
+             }
+}
+
 std::vector<DatabaseManager::student> DatabaseManager::get_entries()
 {
     std::vector<student> studentsList(schoolDiary.size());
@@ -32,5 +40,36 @@ std::vector<DatabaseManager::student> DatabaseManager::get_entries()
         [](auto a)  {return student{ a.first, a.second }; });
 
     return studentsList;
+}
+
+void DatabaseManager::save()
+{
+
+}
+
+void DatabaseManager::load()
+{
+    std::vector < std::string > student;
+    std::string line, word;
+    std::fstream file("Students.csv", std::ios::in);
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            student.clear();
+
+            std::stringstream str(line);
+
+            while (std::getline(str, word, ','))
+                student.push_back(word);
+            
+        }
+        std::stoi(student[1]);
+        std::pair<student, student> paraStudentow;
+        schoolDiary.insert(student);
+        file.close();
+
+    }
+    else
+        std::cout << "Could not open the file\n";
+
 }
 

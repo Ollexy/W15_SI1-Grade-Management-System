@@ -1,8 +1,9 @@
 #include "databaseManager.h"
+#include "Application.h"
 
 int main() {
-	DatabaseManager dziennik;
-	dziennik.menu();
+	Application dziennik;
+	dziennik.mainMenu();
 
 
 	return 0;

@@ -11,7 +11,9 @@ class Application
 	UserInterfaceDatabaseContext obj2;
 
 public:
-	void menu();
-	void displayMenu();
+	void displayMainMenu();
+	void mainMenu();
+	void modifyDatabase();
+	void displayModifyDatabase();
 };
 
