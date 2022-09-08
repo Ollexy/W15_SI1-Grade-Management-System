@@ -9,13 +9,11 @@
 #include <sstream>
 
 
-
 class DatabaseManager
 {
 public:
     DatabaseManager() = default;
     ~DatabaseManager() = default;
-   // cin, cout obiekt klasy fstream
 
     struct student {
         std::string student_name{};

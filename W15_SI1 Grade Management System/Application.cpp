@@ -25,21 +25,14 @@ void Application::mainMenu()
         if (choice == 1) {
             modifyDatabase();
         }
-        else if (choice == 2) {
-            std::cout << "Load: 1\n";
-            std::cout << "Save: 2\n";
-            int input;
-            std::cin >> input;
-            if (input == 1) {
-                obj1.load();
-            }else if(input == 2)
-                obj1.save();
+        else if (choice == 2) {  
+            loadStoreDatabase();
         }
         else if (choice == 3) {
-          
+            displayFilteringOptions();
         }
         else if (choice == 4) {
-           
+            displaySortingOptions();
         }
         else if (choice == 5) {
             obj1.visualize();
@@ -134,5 +127,41 @@ void Application::displayModifyDatabase()
     std::cout << "6. Back \n\n>> ";
 
     //Main Menu: modifyDatabase, load/store dataBase, filterDatabase, setSortingOrder, visualizeDatabase, EXIT
+}
+
+void Application::loadStoreDatabase()
+{
+    std::cout << "Load: 1\n";
+    std::cout << "Save: 2\n\n>> ";
+
+    int choice;
+    std::cin >> choice;
+
+    switch (choice) {
+    case 1:
+        obj1.load();
+        break;
+    case 2:
+        obj1.save();
+        break;
+    }
+
+}
+
+void Application::displayFilteringOptions()
+{
+    std::cout << "\n1. Passing grades\n";
+    std::cout << "2. Non passing grades\n ";
+    std::cout << "3. All grades\n";
+    std::cout << "4. Back\n\n>> ";
+}
+
+void Application::displaySortingOptions()
+{
+    std::cout << "\n1. Incresing by name\n";
+    std::cout << "2. Decreasing by name\n";
+    std::cout << "3. Increasing by grade\n";
+    std::cout << "4. Decreasing by grade\n ";
+    std::cout << "5. Back\n\n>> ";
 }
 

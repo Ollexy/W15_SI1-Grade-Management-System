@@ -15,5 +15,8 @@ public:
 	void mainMenu();
 	void modifyDatabase();
 	void displayModifyDatabase();
+	void loadStoreDatabase();
+	void displayFilteringOptions();
+	void displaySortingOptions();
 };
 

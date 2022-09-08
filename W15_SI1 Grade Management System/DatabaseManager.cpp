@@ -29,7 +29,7 @@ void DatabaseManager::visualize()
 {
     auto it = begin(schoolDiary);
              for (it; it != end(schoolDiary); it++) {
-                 std::cout << "\t Name: " << std::setw(15) << std::left << it->first << "\t Grade: " << it->second << std::endl;
+                 std::cout << "\t Name: " << std::setw(20) << std::left << it->first << "\t Grade: " << it->second << std::endl;
              }
 }
 
