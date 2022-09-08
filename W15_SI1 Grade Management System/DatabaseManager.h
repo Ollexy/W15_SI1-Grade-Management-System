@@ -15,10 +15,20 @@ class DatabaseManager
 public:
     DatabaseManager() = default;
     ~DatabaseManager() = default;
+   // cin, cout obiekt klasy fstream
 
     struct student {
-        std::string student_name;
-        int grade;
+        std::string student_name{};
+        int grade{};
+        student() = default;
+        student(std::string name, int grade) : student_name{ name }, grade{ grade } {};
+        
+        bool operator==(const student& rhs) {
+            if (this->student_name == rhs.student_name && this->grade == rhs.grade)
+                return true;
+            else
+                return false;
+        }
     };
 
 
@@ -31,10 +41,11 @@ public:
 
     std::vector <student> get_entries();
 
-    void save();
-    void load();
-    //friend std::ostream& operator<<(std::ostream&, const databaseManager&);
-    //friend std::ostream& operator>>(std::ostream&, const databaseManager&);
+    //void save();
+    //void load();
+
+    friend std::ostream& operator<<(std::ostream& os, const DatabaseManager::student& rhs);
+    friend std::istream& operator>>(std::istream& is, DatabaseManager::student& rhs);
 };
 
 
