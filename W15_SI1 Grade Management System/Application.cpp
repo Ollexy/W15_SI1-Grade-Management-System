@@ -26,7 +26,7 @@ void Application::mainMenu()
             modifyDatabase();
         }
         else if (choice == 2) {
-           
+            obj1.load();
         }
         else if (choice == 3) {
           

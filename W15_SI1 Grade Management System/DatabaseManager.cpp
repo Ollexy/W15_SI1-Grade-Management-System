@@ -2,12 +2,13 @@
 
 void DatabaseManager::add_entry(student newStudent) {
 
-    std::pair<std::string, int> student1("Rafalek", 5);
-    std::pair<std::string, int> student2("Iza", 2);
-    std::pair<std::string, int> student3("Kuba", 6);
-    schoolDiary.insert(student1);
-    schoolDiary.insert(student2);
-    schoolDiary.insert(student3);
+    //std::pair<std::string, int> student1("Rafalek", 5);
+    //std::pair<std::string, int> student2("Iza", 2);
+    //std::pair<std::string, int> student3("Kuba", 6);
+    //schoolDiary.insert(student1);
+    //schoolDiary.insert(student2);
+    //schoolDiary.insert(student3);
+    
     schoolDiary.insert({ newStudent.student_name, newStudent.grade});
 }
 
@@ -49,27 +50,36 @@ void DatabaseManager::save()
 
 void DatabaseManager::load()
 {
-    std::vector < std::string > student;
-    std::string line, word;
-    std::fstream file("Students.csv", std::ios::in);
-    if (file.is_open()) {
-        while (getline(file, line)) {
-            student.clear();
+    std::fstream path;
+    path.open("database.csv");
+    std::string line = "";
+    std::string name{};
+    std::string grade{};
+    bool isName = false;
+    bool isGrade = false;
 
-            std::stringstream str(line);
-
-            while (std::getline(str, word, ','))
-                student.push_back(word);
-            
+    while (line != "END") {
+        std::getline(path, line);
+        
+        if (!isName) {
+            name = line;
+            isName = true;
         }
-        std::stoi(student[1]);
-        std::pair<student, student> paraStudentow;
-        schoolDiary.insert(student);
-        file.close();
-
+        else if (!isGrade) {
+            grade = line;
+            isGrade = true;
+        }
+        if (isGrade && isName) {
+            student newStudent;
+            newStudent.student_name = name;
+            newStudent.grade = std::stoi(grade);
+            schoolDiary.insert({ newStudent.student_name, newStudent.grade });
+            isName = false;
+            isGrade = false;
+        }
     }
-    else
-        std::cout << "Could not open the file\n";
-
+    path.close();
 }
+
+
 
