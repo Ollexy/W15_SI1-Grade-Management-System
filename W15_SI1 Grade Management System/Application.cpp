@@ -39,13 +39,10 @@ void Application::mainMenu()
         }
 
     } while (choice != 6);
-
 }
 
 void Application::modifyDatabase()
 {
-
-
     int choice;
 
     do {
@@ -154,6 +151,24 @@ void Application::displayFilteringOptions()
     std::cout << "2. Non passing grades\n ";
     std::cout << "3. All grades\n";
     std::cout << "4. Back\n\n>> ";
+
+    int choice;
+    std::cin >> choice;
+
+    switch (choice) {
+    case 1:
+        obj2.filteringPassingGrades(obj1);
+        break;
+    case 2:
+        obj2.filteringNonPassingGrades(obj1);
+        break;
+    case 3:
+        obj1.visualize();
+        break;
+    case 4:
+        displayMainMenu();
+        break;
+    }
 }
 
 void Application::displaySortingOptions()
@@ -163,5 +178,26 @@ void Application::displaySortingOptions()
     std::cout << "3. Increasing by grade\n";
     std::cout << "4. Decreasing by grade\n ";
     std::cout << "5. Back\n\n>> ";
+
+    int choice;
+    std::cin >> choice;
+
+    switch (choice) {
+    case 1:
+        obj2.sortIncreasingByName(obj1);
+        break;
+    case 2:
+        obj2.sortDecreasingByName(obj1);
+        break;
+    case 3:
+        obj2.sortIncreasingByGrade(obj1);
+        break;
+    case 4:
+        obj2.sortDecreasingByGrade(obj1);
+        break;
+    case 5:
+        displayMainMenu();
+        break;
+    }
 }
 

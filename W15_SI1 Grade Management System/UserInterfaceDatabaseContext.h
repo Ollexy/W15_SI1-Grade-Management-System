@@ -7,8 +7,10 @@ class UserInterfaceDatabaseContext
 {
 public:
 	void sortIncreasingByGrade(DatabaseManager obj1);
-	void sortIncreasingByName();
-	void sortDecreasingByGrade();
-	void sortDecreasingByName();
-};
+	void sortIncreasingByName(DatabaseManager obj1);
+	void sortDecreasingByGrade(DatabaseManager obj1);
+	void sortDecreasingByName(DatabaseManager obj1);
 
+	void filteringPassingGrades(DatabaseManager obj1);
+	void filteringNonPassingGrades(DatabaseManager obj1);
+};

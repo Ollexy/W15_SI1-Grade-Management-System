@@ -27,6 +27,13 @@ public:
             else
                 return false;
         }
+
+        bool operator<(const student& rhs) const {
+            if (this->grade < rhs.grade)
+                return true;
+            else
+                return false;
+        }
     };
 
 
