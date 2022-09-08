@@ -42,7 +42,7 @@ public:
     std::vector <student> get_entries();
 
     //void save();
-    //void load();
+    void load();
 
     friend std::ostream& operator<<(std::ostream& os, const DatabaseManager::student& rhs);
     friend std::istream& operator>>(std::istream& is, DatabaseManager::student& rhs);

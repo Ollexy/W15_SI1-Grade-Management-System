@@ -47,31 +47,39 @@ std::vector<DatabaseManager::student> DatabaseManager::get_entries()
 //
 //}
 
-//void DatabaseManager::load()
-//{
-//    std::vector < std::string > student;
-//    std::string line, word;
-//    std::fstream file("Students.csv", std::ios::in);
-//    if (file.is_open()) {
-//        while (getline(file, line)) {
-//            student.clear();
-//
-//            std::stringstream str(line);
-//
-//            while (std::getline(str, word, ','))
-//                student.push_back(word);
-//            
-//        }
-//        std::stoi(student[1]);
-//        std::pair<student, student> paraStudentow;
-//        schoolDiary.insert(student);
-//        file.close();
-//
-//    }
-//    else
-//        std::cout << "Could not open the file\n";
-//
-//}
+
+void DatabaseManager::load()
+{
+    std::fstream path;
+    path.open("database.csv");
+    std::string line = "";
+    std::string name{};
+    std::string grade{};
+    bool isName = false;
+    bool isGrade = false;
+
+    while (!path.eof()) {
+        std::getline(path, line);
+
+        if (!isName) {
+            name = line;
+            isName = true;
+        }
+        else if (!isGrade) {
+            grade = line;
+            isGrade = true;
+        }
+        if (isGrade && isName) {
+            student newStudent;
+            newStudent.student_name = name;
+            newStudent.grade = std::stoi(grade);
+            schoolDiary.insert({ newStudent.student_name, newStudent.grade });
+            isName = false;
+            isGrade = false;
+        }
+    }
+    path.close();
+}
 
 std::ostream& operator<<(std::ostream& os, const DatabaseManager::student& rhs)
 {
