@@ -42,10 +42,20 @@ std::vector<DatabaseManager::student> DatabaseManager::get_entries()
     return studentsList;
 }
 
-//void DatabaseManager::save()
-//{
-//
-//}
+void DatabaseManager::save()
+{
+    std::fstream myFile;
+
+    myFile.open("database.csv", std::ios::out);
+
+    auto it = schoolDiary.begin();
+    for (it; it != schoolDiary.end(); it++) {
+
+        myFile << it->first << "\n"
+            <<it->second << "\n ";
+    }
+    myFile.close();
+}
 
 
 void DatabaseManager::load()

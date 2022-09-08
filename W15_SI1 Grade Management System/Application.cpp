@@ -26,7 +26,14 @@ void Application::mainMenu()
             modifyDatabase();
         }
         else if (choice == 2) {
-            obj1.load();
+            std::cout << "Load: 1\n";
+            std::cout << "Save: 2\n";
+            int input;
+            std::cin >> input;
+            if (input == 1) {
+                obj1.load();
+            }else if(input == 2)
+                obj1.save();
         }
         else if (choice == 3) {
           
