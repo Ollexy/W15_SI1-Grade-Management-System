@@ -93,7 +93,7 @@ void DatabaseManager::load()
 
 std::ostream& operator<<(std::ostream& os, const DatabaseManager::student& rhs)
 {
-    os << "Student:" + rhs.student_name + " " + "Grade: " + std::to_string(rhs.grade);
+    os << "Student:"<<std::setw(20) << std::left << rhs.student_name << "Grade: " + std::to_string(rhs.grade);
     return os;
 }
 
