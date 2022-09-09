@@ -12,7 +12,7 @@ class Application
 
 public:
 	void displayMainMenu();
-	void mainMenu();
+	int run();
 	void modifyDatabase();
 	void displayModifyDatabase();
 	void loadStoreDatabase();

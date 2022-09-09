@@ -10,10 +10,8 @@ void Application::displayMainMenu()
     std::cout << "6. Exit\n\n>> ";
 }
 
-void Application::mainMenu()
+int Application::run()
 {
-
-
     int choice;
 
     do {
@@ -39,6 +37,8 @@ void Application::mainMenu()
         }
 
     } while (choice != 6);
+
+    return 0;
 }
 
 void Application::modifyDatabase()
@@ -91,18 +91,11 @@ void Application::modifyDatabase()
             else {
                 std::cout << "This student is unevailable ;) Try later...\n";
             }
-
-
             break;
         }
         else if (choice == 4) {
-            /* auto it = begin(schoolDiary);
-             for (it; it != end(schoolDiary); it++) {
-                 std::cout << "\t Name: " << it->first << "\t Grade: " << it->second << std::endl;
-             }*/
 
             auto a = obj1.get_entries();
-            std::cout << "jaja";
 
             break;
         }
@@ -122,8 +115,6 @@ void Application::displayModifyDatabase()
     std::cout << "4. Get students \n";
     std::cout << "5. Visualize\n";
     std::cout << "6. Back \n\n>> ";
-
-    //Main Menu: modifyDatabase, load/store dataBase, filterDatabase, setSortingOrder, visualizeDatabase, EXIT
 }
 
 void Application::loadStoreDatabase()

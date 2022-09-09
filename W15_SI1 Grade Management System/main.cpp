@@ -4,7 +4,7 @@
 
 int main() {
 	Application dziennik;
-	dziennik.mainMenu();
+	dziennik.run();
 
 	return 0;
 }
